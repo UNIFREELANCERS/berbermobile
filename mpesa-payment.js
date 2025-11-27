@@ -8,7 +8,7 @@ const MPESA_CONFIG = {
     passkey: 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
     partyA: null, // Will be set at runtime
     partyB: null, // Merchant paybill number
-    callbackUrl: 'YOUR_CALLBACK_URL',
+    callbackUrl: 'https://unifreelancers.github.io/berbermobile/mpesa-payment.js',
     accountReference: 'HairHustler'
 };
 
@@ -271,3 +271,4 @@ function getMpesaTransaction(accountReference) {
     const transactions = getMpesaTransactions();
     return transactions.find(t => t.accountReference === accountReference);
 }
+
