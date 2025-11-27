@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Hustler - Events</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="hex-logo">
+                <div class="hex-inner">
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                </div>
+            </div>
+            <a href="home.html" class="brand-name-link">
+                <span class="brand-name">Hair Hustler</span>
+            </a>
+        </div>
+        
+        <!-- Hamburger Menu Icon -->
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="main-nav">
+            <a href="findservice.html">FIND SERVICES</a>
+            <a href="events.html" class="nav-active">HAIR HUSTLER EVENTS</a>
+            <a href="#" class="protected-link">CUSTOMER PANEL</a>
+            <a href="employerpanel.html" class="protected-link">EMPLOYEE PANEL</a>
+            <a href="#" class="protected-link">BUY HAIR HUSTLER</a>
+        </nav>
+        
+        <div class="header-right">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    LOGOUT
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="events-welcome-section">
+        <div class="events-welcome-content">
+            <h1 class="events-welcome-title">WELCOME TO HAIR HUSTLER BOOKING EVENTS - ELEVATE YOUR EVENT MANAGEMENT!</h1>
+            <p class="events-welcome-subtitle">IF YOU ARE INTERESTED IN RUNNING EVENTS NOT JUST APPOINTMENTS, THIS IS HOW EVENTS CAN LOOK LIKE.</p>
+            
+            <div class="events-icon-container">
+                <div class="events-main-icon">
+                    <i class="fas fa-cut"></i>
+                    <div class="icon-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="events-section-title">HAIR HUSTLER EVENTS</h2>
+        </div>
+    </section>
+
+    <!-- Events Listing Section -->
+    <section class="events-listing-section">
+        <div class="events-container">
+            <div class="events-card">
+                <div class="events-header">
+                    <h3 class="events-available-count"><span id="eventsCount">15</span> Events Available</h3>
+                </div>
+                
+                <div class="events-search-bar">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="eventsSearch" placeholder="Search for Events..." class="events-search-input">
+                    </div>
+                    <button class="filters-btn" id="filtersBtn">
+                        <i class="fas fa-filter"></i>
+                        Filters
+                    </button>
+                </div>
+
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Events will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <div class="services-floating-btn">
+        <div class="hex-logo-small">
+            <div class="hex-inner-small">
+                <div class="hex-dot-small"></div>
+                <div class="hex-dot-small"></div>
+                <div class="hex-dot-small"></div>
+            </div>
+        </div>
+        <span>Hair Hustler Free</span>
+    </div>
+
+    <!-- Chat Icon -->
+    <div class="chat-widget">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Event Booking Modal -->
+    <div id="eventBookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="eventBookingContent"></div>
+        </div>
+    </div>
+
+    <!-- Authentication Required Modal -->
+    <div id="authRequiredModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Authentication Required</h2>
+            <p>You need to sign up or login to book events.</p>
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="window.location.href='signup.html'">
+                    <i class="fas fa-user-plus"></i>
+                    SIGN UP / LOGIN
+                </button>
+                <button class="btn-cancel" onclick="document.getElementById('authRequiredModal').style.display='none'">
+                    CANCEL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- M-Pesa Payment Form Modal -->
+    <div id="mpesaFormModal" class="modal">
+        <div class="modal-content mpesa-form-modal">
+            <span class="close-modal" onclick="closeMpesaFormModal()">&times;</span>
+            <div class="mpesa-form-header">
+                <i class="fas fa-mobile-alt"></i>
+                <h2>M-Pesa Payment</h2>
+            </div>
+            <form id="mpesaPaymentForm" class="mpesa-form">
+                <div class="form-group">
+                    <label for="mpesaItemName">Event:</label>
+                    <div class="mpesa-item-display" id="mpesaItemName"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mpesaAmount">Amount (KES):</label>
+                    <input type="number" id="mpesaAmount" placeholder="0.00" step="0.01" readonly class="form-input-readonly">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mpesaPhone">Phone Number:</label>
+                    <div class="phone-input-wrapper">
+                        <span class="phone-prefix">+254</span>
+                        <input type="tel" id="mpesaPhone" placeholder="712345678" maxlength="9" class="mpesa-phone-input" required>
+                    </div>
+                    <small class="form-hint">Enter your M-Pesa registered phone number</small>
+                </div>
+                
+                <input type="hidden" id="mpesaItemId">
+                <input type="hidden" id="mpesaItemType">
+                
+                <div class="mpesa-terms">
+                    <input type="checkbox" id="mpesaTerms" required>
+                    <label for="mpesaTerms">I agree to the payment terms and conditions</label>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-submit mpesa-pay-btn">
+                        <i class="fas fa-mobile-alt"></i>
+                        Complete Payment
+                    </button>
+                    <button type="button" class="btn-cancel" onclick="closeMpesaFormModal()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- M-Pesa Payment Status Modal -->
+    <div id="mpesaPaymentModal" class="modal">
+        <div class="modal-content mpesa-status-modal">
+            <div class="mpesa-status-content">
+                <div class="mpesa-loader"></div>
+                <h2 class="mpesa-modal-title">Processing Payment</h2>
+                <p class="mpesa-modal-message">Please wait while we process your M-Pesa payment...</p>
+                <button type="button" class="btn-cancel" onclick="closeMpesaModal()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="mpesa-payment.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>

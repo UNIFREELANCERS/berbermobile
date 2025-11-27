@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Hustler - Find Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="hex-logo">
+                <div class="hex-inner">
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                </div>
+            </div>
+            <a href="home.html" class="brand-name-link">
+                <span class="brand-name">Hair Hustler</span>
+            </a>
+        </div>
+        
+        <!-- Hamburger Menu Icon -->
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="main-nav">
+            <a href="findservice.html" class="nav-active">FIND SERVICES</a>
+            <a href="events.html" class="protected-link">HAIR HUSTLER EVENTS</a>
+            <a href="customerpanel.html" class="protected-link">CUSTOMER PANEL</a>
+            <a href="employerpanel.html" class="protected-link">EMPLOYEE PANEL</a>
+            <a href="buyhairhustler.html" class="protected-link">BUY HAIR HUSTLER</a>
+        </nav>
+        
+        <div class="header-right">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    LOGOUT
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="search-hero-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <h2 class="search-hero-text">SEARCH FOR SERVICES THAT FIT YOUR NEEDS</h2>
+    </section>
+
+    <!-- Main Content Card -->
+    <section class="services-main">
+        <div class="services-card">
+            <!-- Top Search Bar -->
+            <div class="services-top-bar">
+                <div class="search-filter-group">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="serviceSearch" placeholder="Search" class="service-search-input">
+                    </div>
+                    <div class="filter-dropdown-wrapper">
+                        <i class="fas fa-chevron-down"></i>
+                        <select id="employeeFilter" class="employee-filter">
+                            <option value="">Filter by Employee</option>
+                            <option value="all">All Employees</option>
+                            <option value="john">John Doe</option>
+                            <option value="mike">Mike Smith</option>
+                            <option value="alex">Alex Johnson</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="services-tabs">
+                    <button class="service-tab" data-type="all">All</button>
+                    <button class="service-tab" data-type="packages">Packages</button>
+                    <button class="service-tab active" data-type="services">Services</button>
+                </div>
+            </div>
+
+            <div class="services-content-wrapper">
+                <!-- Left Sidebar - Categories -->
+                <aside class="services-sidebar">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="category-list">
+                        <li class="category-item active" data-category="all">All</li>
+                        <li class="category-item" data-category="haircut">Haircut</li>
+                        <li class="category-item" data-category="trimming">Trimming</li>
+                        <li class="category-item" data-category="styling">Styling</li>
+                        <li class="category-item" data-category="beard">Beard Care</li>
+                    </ul>
+                </aside>
+
+                <!-- Right Content Area -->
+                <main class="services-content">
+                    <div class="services-header">
+                        <h3 class="available-count">Available - <span id="serviceCount">5</span> Services</h3>
+                    </div>
+                    
+                    <div class="services-grid" id="servicesGrid">
+                        <!-- Service Cards will be dynamically generated -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <div class="services-floating-btn">
+        <div class="hex-logo-small">
+            <div class="hex-inner-small">
+                <div class="hex-dot-small"></div>
+                <div class="hex-dot-small"></div>
+                <div class="hex-dot-small"></div>
+            </div>
+        </div>
+        <span>Hair Hustler Free</span>
+    </div>
+
+    <!-- Chat Icon -->
+    <div class="chat-widget">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Authentication Required Modal -->
+    <div id="authRequiredModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Authentication Required</h2>
+            <p>You need to sign up or login to access this feature.</p>
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="window.location.href='signup.html'">
+                    <i class="fas fa-user-plus"></i>
+                    SIGN UP / LOGIN
+                </button>
+                <button class="btn-cancel" onclick="document.getElementById('authRequiredModal').style.display='none'">
+                    CANCEL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- M-Pesa Payment Form Modal -->
+    <div id="mpesaFormModal" class="modal">
+        <div class="modal-content mpesa-form-modal">
+            <span class="close-modal" onclick="closeMpesaFormModal()">&times;</span>
+            <div class="mpesa-form-header">
+                <i class="fas fa-mobile-alt"></i>
+                <h2>M-Pesa Payment</h2>
+            </div>
+            <form id="mpesaPaymentForm" class="mpesa-form">
+                <div class="form-group">
+                    <label for="mpesaItemName">Service:</label>
+                    <div class="mpesa-item-display" id="mpesaItemName"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mpesaAmount">Amount (KES):</label>
+                    <input type="number" id="mpesaAmount" placeholder="0.00" step="0.01" readonly class="form-input-readonly">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mpesaPhone">Phone Number:</label>
+                    <div class="phone-input-wrapper">
+                        <span class="phone-prefix">+254</span>
+                        <input type="tel" id="mpesaPhone" placeholder="712345678" maxlength="9" class="mpesa-phone-input" required>
+                    </div>
+                    <small class="form-hint">Enter your M-Pesa registered phone number</small>
+                </div>
+                
+                <input type="hidden" id="mpesaItemId">
+                <input type="hidden" id="mpesaItemType">
+                
+                <div class="mpesa-terms">
+                    <input type="checkbox" id="mpesaTerms" required>
+                    <label for="mpesaTerms">I agree to the payment terms and conditions</label>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-submit mpesa-pay-btn">
+                        <i class="fas fa-mobile-alt"></i>
+                        Complete Payment
+                    </button>
+                    <button type="button" class="btn-cancel" onclick="closeMpesaFormModal()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- M-Pesa Payment Status Modal -->
+    <div id="mpesaPaymentModal" class="modal">
+        <div class="modal-content mpesa-status-modal">
+            <div class="mpesa-status-content">
+                <div class="mpesa-loader"></div>
+                <h2 class="mpesa-modal-title">Processing Payment</h2>
+                <p class="mpesa-modal-message">Please wait while we process your M-Pesa payment...</p>
+                <button type="button" class="btn-cancel" onclick="closeMpesaModal()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="mpesa-payment.js"></script>
+    <script src="services.js"></script>
+</body>
+</html>

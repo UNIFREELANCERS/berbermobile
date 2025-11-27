@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Hustler - Customer Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="customer-panel-page">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="hex-logo">
+                <div class="hex-inner">
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                </div>
+            </div>
+            <a href="home.html" class="brand-name-link">
+                <span class="brand-name">Hair Hustler</span>
+            </a>
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <a href="findservice.html">FIND SERVICES</a>
+            <a href="events.html">HAIR HUSTLER EVENTS</a>
+            <a href="customerpanel.html" class="nav-active">CUSTOMER PANEL</a>
+            <a href="employerpanel.html">EMPLOYEE PANEL</a>
+            <a href="buyhairhustler.html">BUY HAIR HUSTLER</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="user-info" id="userInfo">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    LOGOUT
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="customer-panel-hero">
+        <div class="customer-hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="hero-text">
+                <p class="eyebrow">Hair Hustler Concierge</p>
+                <h1>Customer Panel</h1>
+                <p class="subtitle">
+                    Review your booked appointments, leave remarks about our stylists, and keep tabs on every milestone in your journey with us.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="customer-panel-main">
+        <div class="customer-panel-layout">
+            <!-- Sidebar -->
+            <aside class="customer-sidebar">
+                <div class="customer-card profile-card">
+                    <div class="profile-avatar" id="profileAvatar">JD</div>
+                    <div class="profile-info">
+                        <h2 id="profileName">John Doe</h2>
+                        <p id="profileEmail">johndoe@email.com</p>
+                        <span class="membership-pill" id="membershipTier">Classic Member</span>
+                    </div>
+                    <div class="profile-stats">
+                        <div>
+                            <p>Upcoming</p>
+                            <strong id="sidebarUpcoming">0</strong>
+                        </div>
+                        <div>
+                            <p>History</p>
+                            <strong id="sidebarHistory">0</strong>
+                        </div>
+                        <div>
+                            <p>Events</p>
+                            <strong id="sidebarEvents">0</strong>
+                        </div>
+                    </div>
+                    <div class="next-appointment" id="nextAppointmentCard">
+                        <p class="label">Next session</p>
+                        <h3 id="nextAppointmentTitle">No bookings yet</h3>
+                        <span id="nextAppointmentMeta">——</span>
+                    </div>
+                </div>
+
+                <div class="customer-card loyalty-card">
+                    <div class="loyalty-header">
+                        <p>Loyalty Journey</p>
+                        <span id="loyaltyProgressText">0% complete</span>
+                    </div>
+                    <div class="loyalty-progress">
+                        <div class="loyalty-progress-fill" id="loyaltyProgressFill"></div>
+                    </div>
+                    <p class="loyalty-footnote">Unlock Gold perks after 6 completed appointments.</p>
+                </div>
+
+                <div class="customer-card quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button class="quick-btn" onclick="window.location.href='findservice.html'">
+                        <i class="fas fa-calendar-plus"></i>
+                        Book New Service
+                    </button>
+                    <button class="quick-btn ghost" onclick="window.location.href='events.html'">
+                        <i class="fas fa-ticket-alt"></i>
+                        Explore Events
+                    </button>
+                    <button class="quick-btn ghost" onclick="window.location.href='packages.html'">
+                        <i class="fas fa-gift"></i>
+                        View Packages
+                    </button>
+                </div>
+
+                <div class="customer-card care-tracker">
+                    <div class="tracker-header">
+                        <h3>At-home Care Tracker</h3>
+                        <span id="careCompletion">0/3 done</span>
+                    </div>
+                    <label class="care-item">
+                        <input type="checkbox" data-care="mask">
+                        <span>Hydration mask this week</span>
+                    </label>
+                    <label class="care-item">
+                        <input type="checkbox" data-care="trim">
+                        <span>Micro-trim reminder</span>
+                    </label>
+                    <label class="care-item">
+                        <input type="checkbox" data-care="products">
+                        <span>Restock preferred products</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Content -->
+            <section class="customer-content">
+                <div class="content-toolbar">
+                    <div class="date-pill" id="dateRangeDisplay">
+                        <i class="far fa-calendar"></i>
+                        <span>Next 12 months</span>
+                    </div>
+                    <div class="toolbar-actions">
+                        <div class="timezone-picker">
+                            <i class="fas fa-globe"></i>
+                            <select id="timezoneSelect">
+                                <option value="UTC">UTC</option>
+                                <option value="America/New_York">New York (EST)</option>
+                                <option value="Europe/London">London (GMT)</option>
+                                <option value="Africa/Johannesburg">Johannesburg (SAST)</option>
+                            </select>
+                        </div>
+                        <button class="filters-btn-solid" id="filtersBtn">
+                            <i class="fas fa-filter"></i>
+                            Filters
+                        </button>
+                    </div>
+                </div>
+
+                <div class="customer-tabs" id="appointmentTabs">
+                    <button class="tab-btn active" data-target="upcomingTimeline">Upcoming</button>
+                    <button class="tab-btn" data-target="historyTimeline">History</button>
+                    <button class="tab-btn" data-target="eventsTimeline">Events</button>
+                </div>
+
+                <div class="timeline-wrapper">
+                    <div id="upcomingTimeline" class="timeline-list"></div>
+                    <div id="historyTimeline" class="timeline-list hidden"></div>
+                    <div id="eventsTimeline" class="timeline-list hidden"></div>
+                </div>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <p>Average visit cadence</p>
+                        <strong id="cadenceLabel">—</strong>
+                        <span>days between sessions</span>
+                    </div>
+                    <div class="insight-card">
+                        <p>Preferred stylist</p>
+                        <strong id="stylistLabel">Unassigned</strong>
+                        <span>based on your bookings</span>
+                    </div>
+                    <div class="insight-card">
+                        <p>Most booked service</p>
+                        <strong id="serviceLabel">—</strong>
+                        <span>all time</span>
+                    </div>
+                </div>
+
+                <div class="panel-grid">
+                    <div class="customer-card remark-card">
+                        <div class="card-header">
+                            <div>
+                                <p class="eyebrow">We are listening</p>
+                                <h3>Leave a remark</h3>
+                            </div>
+                            <span class="tag tag-soft">Service feedback</span>
+                        </div>
+                        <form id="remarkForm">
+                            <label>
+                                Service experienced
+                                <input type="text" id="remarkService" placeholder="e.g. Students & Seniors Special" required>
+                            </label>
+                            <label>
+                                Rate the experience
+                                <select id="remarkRating" required>
+                                    <option value="">Select rating</option>
+                                    <option value="5">5 - Stellar</option>
+                                    <option value="4">4 - Great</option>
+                                    <option value="3">3 - Okay</option>
+                                    <option value="2">2 - Needs work</option>
+                                    <option value="1">1 - Poor</option>
+                                </select>
+                            </label>
+                            <label>
+                                Remark
+                                <textarea id="remarkMessage" rows="4" placeholder="Share what stood out..." required></textarea>
+                            </label>
+                            <button type="submit" class="remark-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Send remark
+                            </button>
+                            <p class="form-hint" id="remarkHint">Remarks go straight to our lead stylist.</p>
+                        </form>
+                    </div>
+
+                    <div class="customer-card remarks-feed">
+                        <div class="card-header">
+                            <h3>Recent remarks</h3>
+                            <button class="link-btn" id="clearRemarksBtn">Clear</button>
+                        </div>
+                        <div id="remarksFeed"></div>
+                    </div>
+                </div>
+
+                <div class="customer-card tips-card">
+                    <div class="card-header">
+                        <div>
+                            <p class="eyebrow">Special feature</p>
+                            <h3>Studio care tips</h3>
+                        </div>
+                        <div class="tip-badge">Updated weekly</div>
+                    </div>
+                    <div class="tips-list" id="tipsList"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating CTA -->
+    <button class="panel-floating-badge" onclick="window.location.href='home.html'">
+        <span>Hair Hustler Free</span>
+        <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <!-- Chat Icon -->
+    <div class="chat-widget">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="customerpanel.js"></script>
+</body>
+</html>
+

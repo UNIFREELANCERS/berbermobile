@@ -1,0 +1,17 @@
+{
+  "users": [],
+  "schema": {
+    "id": "unique identifier",
+    "name": "Full name of user",
+    "email": "Email address (unique)",
+    "phone": "Phone number",
+    "role": "client or barber",
+    "password": "hashed password",
+    "createdAt": "ISO date string",
+    "lastLogin": "ISO date string or null",
+    "bookings": [],
+    "profile": {}
+  },
+  "note": "This file serves as a template. User data is stored in browser localStorage. For production, use a proper database server."
+}
+

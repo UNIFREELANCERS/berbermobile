@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Hustler - Barbershop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="hex-logo">
+                <div class="hex-inner">
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                    <div class="hex-dot"></div>
+                </div>
+            </div>
+            <span class="brand-name">Hair Hustler</span>
+        </div>
+        
+        <!-- Hamburger Menu Icon -->
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="main-nav">
+            <a href="findservice.html" class="protected-link">FIND SERVICES</a>
+            <a href="events.html" class="protected-link">HAIR HUSTLER EVENTS</a>
+            <a href="customerpanel.html" class="protected-link">CUSTOMER PANEL</a>
+            <a href="employerpanel.html" class="protected-link">EMPLOYEE PANEL</a>
+            <a href="buyhairhustler.html" class="protected-link">BUY HAIR HUSTLER</a>
+        </nav>
+        
+        <div class="header-right">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    LOGOUT
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-icon-text">
+                <i class="fas fa-cut hero-scissors"></i>
+                <span class="hero-subtitle">Barbershop</span>
+            </div>
+            <h1 class="hero-title">HAIR HUSTLER BARBERSHOP</h1>
+            <p class="hero-tagline"> STAY SHARP HUSTLE HARD</p>
+            <div class="hero-divider"></div>
+            <button class="btn-primary" id="bookAppointmentBtn">BOOK APPOINTMENT</button>
+        </div>
+        
+        <div class="hero-side-buttons">
+            <button class="btn-orange protected-button">
+                <i class="fas fa-shopping-cart"></i>
+                Buy Hair Hustler
+            </button>
+            <button class="btn-blue protected-button">
+                <div class="hex-logo-small">
+                    <div class="hex-inner-small">
+                        <div class="hex-dot-small"></div>
+                        <div class="hex-dot-small"></div>
+                        <div class="hex-dot-small"></div>
+                    </div>
+                </div>
+                Hair Hustler Free
+            </button>
+        </div>
+    </section>
+
+    <!-- Sign Up / Login Button -->
+    <button class="signup-btn" id="authBtn">
+        <i class="fas fa-user-plus" id="authIcon"></i>
+        <span id="authText">SIGN UP</span>
+    </button>
+
+    <!-- Chat Icon -->
+    <div class="chat-widget">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Authentication Required Modal -->
+    <div id="authRequiredModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Authentication Required</h2>
+            <p>You need to sign up or login to access this feature.</p>
+            <div class="modal-buttons">
+                <button class="btn-submit" onclick="window.location.href='signup.html'">
+                    <i class="fas fa-user-plus"></i>
+                    SIGN UP / LOGIN
+                </button>
+                <button class="btn-cancel" onclick="document.getElementById('authRequiredModal').style.display='none'">
+                    CANCEL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>
